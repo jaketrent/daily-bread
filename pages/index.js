@@ -1,1 +1,1 @@
-export default _ => <h1>Daily Bread</h1>
+export default _ => <h1>Daily Bread 2</h1>
