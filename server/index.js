@@ -8,6 +8,8 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
+const serialize = data => JSON.stringify({ data })
+
 app.prepare().then(() => {
   createServer(async (req, res) => {
     // Be sure to pass `true` as the second argument to `url.parse`.
@@ -19,7 +21,7 @@ app.prepare().then(() => {
       const post = await repo.fetchLatest()
 
       res.writeHead(200, { 'Content-Type': 'application/json'})
-      return res.end(JSON.stringify(post))
+      return res.end(serialize(post))
     }
 
     if (pathname.includes('/post/')) {
