@@ -7,15 +7,18 @@
     "dev": "next",
     "deploy": "git subtree push --prefix out origin gh-pages",
     "build": "next build && next export",
-    "start": "next start -p $PORT",
+    "start": "node server.js -p $PORT",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "jaketrent",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.15.3",
+    "front-matter": "^2.1.2",
     "next": "^3.0.0-beta6",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-markdown": "^2.5.0"
   }
 }
