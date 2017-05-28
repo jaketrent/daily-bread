@@ -2,22 +2,24 @@ const { createServer } = require('http')
 const { parse } = require('url')
 const next = require('next')
 
+const repo = require('./repo')
+
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
-  createServer((req, res) => {
+  createServer(async (req, res) => {
     // Be sure to pass `true` as the second argument to `url.parse`.
     // This tells it to parse the query portion of the URL.
     const parsedUrl = parse(req.url, true)
     const { pathname, query } = parsedUrl
 
     if (pathname.includes('/api/')) {
-      console.log('api something');
-      console.log('parsedUrl', parsedUrl)
+      const post = await repo.fetchLatest()
+
       res.writeHead(200, { 'Content-Type': 'application/json'})
-      return res.end(JSON.stringify({ one: 'two' }))
+      return res.end(JSON.stringify(post))
     }
 
     if (pathname.includes('/post/')) {

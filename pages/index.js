@@ -5,6 +5,7 @@ export default class extends React.Component {
     return await Post.fetchLatest()
   }
   render() {
+    console.log('this.props', this.props)
     return (
       <div>
         <div>Daily Bread 4</div>
