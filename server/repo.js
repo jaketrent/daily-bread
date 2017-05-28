@@ -9,7 +9,7 @@ const findLatest = filenames =>
 const deserialize = parsed => ({
   title: parsed.attributes.title,
   date: parsed.attributes.date,
-  ref: parsed.attributes.ref,
+  reference: parsed.attributes.reference,
   url: parsed.attributes.url,
   body: parsed.body
 })
