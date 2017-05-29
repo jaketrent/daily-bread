@@ -4,7 +4,7 @@ const frontMatter = require('front-matter')
 const fs = promisify('fs')
 
 const findLatest = filenames =>
-  filenames.sort()[0]
+  filenames.sort()[filenames.length - 1]
 
 const deserialize = parsed => ({
   title: parsed.attributes.title,
