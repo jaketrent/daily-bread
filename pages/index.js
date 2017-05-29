@@ -47,6 +47,12 @@ export default class Index extends React.Component {
             font-family: sans-serif;
             background: #EDF391;
             background: linear-gradient(to bottom, #EDF391, #ead874);
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-image: url(static/img/bg.jpg);
+            background-image: -webkit-image-set(url(static/img/bg.jpg) 1x, url(static/img/bg@2x.jpg) 2x);
+            background-image: image-set(url(static/img/bg.jpg) 1x, url(static/img/bg@2x.jpg) 2x);
+            background-size: cover;
             color: #fff;
           }
           a {
