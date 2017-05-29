@@ -29,15 +29,15 @@ export default class Index extends React.Component {
         <style global jsx>{`
           @font-face {
             font-family: "Milkshake";
-            src: url('/static/type/Milkshake.otf') format('opentype'),
-                 url('/static/type/Milkshake.ttf') format('truetype');
+            src: url('static/type/Milkshake.otf') format('opentype'),
+                 url('static/type/Milkshake.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
           }
           @font-face {
             font-family: "Questa_Regular";
-            src: url('/static/type/2-Questa_Regular-webfont.woff2') format('woff2'),
-                 url('/static/type/2-Questa_Regular-webfont.woff') format('woff');
+            src: url('static/type/2-Questa_Regular-webfont.woff2') format('woff2'),
+                 url('static/type/2-Questa_Regular-webfont.woff') format('woff');
             font-weight: normal;
             font-style: normal;
           }
