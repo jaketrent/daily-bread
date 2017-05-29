@@ -15,34 +15,35 @@ const Post = props =>
     <style jsx>{`
       .root {
         display: inline-block;
+        font-size: 1rem;
       }
       .titleContainer {
         display: flex;
         align-items: center;
-        line-height: 42px;
+        line-height: 2.625em;
         color: #595a5b;
       }
       .date {
-        font-size: 12px;
-        margin-right: 18px;
+        font-size: 0.75rem;
+        margin-right: 1.125em;
       }
       .title {
         margin: 0;
-        font-size: 24px;
+        font-size: 1.5em;
         font-family: "Milkshake";
       }
       .body {
-        font-size: 36px;
-        line-height: 42px;
+        font-size: 2.25em;
+        line-height: 1.125em;
         font-family: "Questa_Regular";
         color: #5ba9a9;
         text-shadow: 1px 1px 0 #516a6f;
       }
       .body :global(p) {
-        margin: 0 0 24px 0;
+        margin: 0 0 0.75em 0;
       }
       .reference {
-        font-size: 24px;
+        font-size: 1.5em;
         color: #595a5b;
         font-family: "Milkshake";
         text-decoration: none;

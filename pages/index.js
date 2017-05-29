@@ -41,22 +41,35 @@ export default class Index extends React.Component {
             font-weight: normal;
             font-style: normal;
           }
-          body {
+          html {
             box-sizing: border-box;
-            margin: 0;
             font-family: sans-serif;
+            font-size: 16px;
+            color: #fff;
+          }
+          body {
+            margin: 0;
             background: #EDF391;
             background: linear-gradient(to bottom, #EDF391, #ead874);
             background-repeat: no-repeat;
-            background-position: center top;
+            background-position: center;
             background-image: url(static/img/bg.jpg);
             background-image: -webkit-image-set(url(static/img/bg.jpg) 1x, url(static/img/bg@2x.jpg) 2x);
             background-image: image-set(url(static/img/bg.jpg) 1x, url(static/img/bg@2x.jpg) 2x);
             background-size: cover;
-            color: #fff;
           }
           a {
             color: #fff;
+            cursor: pointer;
+          }
+          @media screen and (min-width: 500px) {
+            html { font-size: 24px; }
+          }
+          @media screen and (min-width: 800px) {
+            html { font-size: 30px; }
+          }
+          @media screen and (min-width: 1200px) {
+            html { font-size: 36px; }
           }
         `}</style>
       </div>
