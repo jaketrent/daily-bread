@@ -2,10 +2,18 @@ import 'isomorphic-fetch'
 import Markdown from 'react-markdown'
 import React from 'react'
 
+const getMonth = i => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'][parseInt(i, 10) - 1]
+
+const formatDate = str => {
+  const [yyyy, mm, dd] = str.split('-')
+  const month = getMonth(mm)
+  return `${dd} ${month} ${yyyy}`
+}
+
 const Post = props =>
   <div className="root">
     <div className="titleContainer">
-      <time className="date" dateTime={props.date}>{props.date}</time>
+        <time className="date" dateTime={props.date}>{formatDate(props.date)}</time>
       <h1 className="title">{props.title}</h1>
     </div>
     <div className="body">
