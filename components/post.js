@@ -1,4 +1,5 @@
 import 'isomorphic-fetch'
+import Head from 'next/head'
 import Markdown from 'react-markdown'
 import React from 'react'
 
@@ -12,8 +13,20 @@ const formatDate = str => {
 
 const Post = props =>
   <div className="root">
+    <Head>
+      <meta property="og:title" content={props.title} />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content="https://jaketrent.github.io/daily-bread/" />
+      <meta property="og:description" content={props.title} />
+      <meta property="og:image" content="https://jaketrent.github.io/daily-bread/static/img/bg.jpg" />
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={props.title} />
+      <meta name="twitter:description" content={props.body} />
+      <meta property="twitter:image" content="https://jaketrent.github.io/daily-bread/static/img/bg.jpg" />
+    </Head>
     <div className="titleContainer">
-        <time className="date" dateTime={props.date}>{formatDate(props.date)}</time>
+      <time className="date" dateTime={props.date}>{formatDate(props.date)}</time>
       <h1 className="title">{props.title}</h1>
     </div>
     <div className="body">
