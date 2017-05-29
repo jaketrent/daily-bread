@@ -3,6 +3,8 @@ const promisify = require('promisify-node')
 const frontMatter = require('front-matter')
 const fs = promisify('fs')
 
+let cache = null
+
 const findLatest = filenames =>
   filenames.sort()[filenames.length - 1]
 
@@ -15,14 +17,16 @@ const deserialize = parsed => ({
 })
 
 async function fetchLatest() {
+  if (cache) return Promise.resolve(cache)
+
   const postsDir = path.join(__dirname, '..', 'posts')
   const filenames = await fs.readdir(postsDir)
   const latest = findLatest(filenames)
   const markdown = await fs.readFile(path.join(postsDir, latest), 'utf-8')
   const parsed = frontMatter(markdown)
   const post = deserialize(parsed)
-  console.log('repo post', post)
-  return Promise.resolve(post)
+  cache = post
+  return Promise.resolve(cache)
 }
 
 exports.fetchLatest = fetchLatest
