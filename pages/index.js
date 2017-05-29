@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import Post from '../components/post'
 
 const FullBleedPage = props =>
@@ -23,6 +25,12 @@ export default class Index extends React.Component {
   render() {
     return (
       <div>
+        <Head>
+          <meta name="HandheldFriendly" content="True" />
+          <meta name="MobileOptimized" content="320" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="shortcut icon" type="image/png" href="static/favicon.png" />
+        </Head>
         <FullBleedPage>
           <Post post={this.props.post} />
         </FullBleedPage>
