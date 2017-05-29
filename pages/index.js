@@ -29,7 +29,7 @@ export default class Index extends React.Component {
           <meta name="HandheldFriendly" content="True" />
           <meta name="MobileOptimized" content="320" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="shortcut icon" type="image/png" href="static/favicon.png" />
+          <link rel="shortcut icon" type="image/png" href="static/img/favicon.png" />
         </Head>
         <FullBleedPage>
           <Post post={this.props.post} />
