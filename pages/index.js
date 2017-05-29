@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import Post from '../components/post'
+import Credit from '../components/credit'
 
 const FullBleedPage = props =>
   <div className="full-bleed">
@@ -26,6 +27,7 @@ export default class Index extends React.Component {
     return (
       <div>
         <Head>
+          <title>Daily Bread</title>
           <meta name="HandheldFriendly" content="True" />
           <meta name="MobileOptimized" content="320" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,6 +35,7 @@ export default class Index extends React.Component {
         </Head>
         <FullBleedPage>
           <Post post={this.props.post} />
+          <Credit />
         </FullBleedPage>
         <style global jsx>{`
           @font-face {
