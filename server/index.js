@@ -12,10 +12,8 @@ const serialize = data => JSON.stringify({ data })
 
 app.prepare().then(() => {
   createServer(async (req, res) => {
-    // Be sure to pass `true` as the second argument to `url.parse`.
-    // This tells it to parse the query portion of the URL.
     const parsedUrl = parse(req.url, true)
-    const { pathname, query } = parsedUrl
+    const { pathname } = parsedUrl
 
     if (pathname.includes('/api/')) {
       const post = await repo.fetchLatest()
@@ -24,17 +22,7 @@ app.prepare().then(() => {
       return res.end(serialize(post))
     }
 
-    if (pathname.includes('/post/')) {
-      console.log('is post something');
-      const splitPath = pathname.split('/');
-      
-      // Add post slug to query object
-      query.slug = splitPath[2];
-      
-      app.render(req, res, '/post', query)
-    } else {
-      handle(req, res, parsedUrl)
-    }
+    return handle(req, res, parsedUrl)
   })
     .listen(process.env.PORT || 3000, (err) => {
       if (err) throw err
