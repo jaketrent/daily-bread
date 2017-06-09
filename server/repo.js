@@ -1,7 +1,9 @@
 const path = require('path')
-const promisify = require('promisify-node')
+const { promisify } = require('util')
 const frontMatter = require('front-matter')
-const fs = promisify('fs')
+const fs = require('fs')
+const readdir = promisify(fs.readdir)
+const readFile = promisify(fs.readFile)
 
 let cache = null
 
@@ -20,9 +22,9 @@ async function fetchLatest() {
   if (cache) return Promise.resolve(cache)
 
   const postsDir = path.join(__dirname, '..', 'posts')
-  const filenames = await fs.readdir(postsDir)
+  const filenames = await readdir(postsDir)
   const latest = findLatest(filenames)
-  const markdown = await fs.readFile(path.join(postsDir, latest), 'utf-8')
+  const markdown = await readFile(path.join(postsDir, latest), 'utf-8')
   const parsed = frontMatter(markdown)
   const post = deserialize(parsed)
   cache = post
