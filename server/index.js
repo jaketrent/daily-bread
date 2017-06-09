@@ -10,7 +10,8 @@ const handle = app.getRequestHandler()
 
 const serialize = data => JSON.stringify({ data })
 
-app.prepare().then(() => {
+;(async _ => {
+  await app.prepare()
   createServer(async (req, res) => {
     const parsedUrl = parse(req.url, true)
     const { pathname } = parsedUrl
@@ -24,8 +25,9 @@ app.prepare().then(() => {
 
     return handle(req, res, parsedUrl)
   })
-    .listen(process.env.PORT || 3000, (err) => {
-      if (err) throw err
-      console.log('> Ready on http://localhost:' + (process.env.PORT || 3000))
-    })
-})
+  .listen(process.env.PORT || 3000, (err) => {
+    if (err) throw err
+    console.log('> Ready on http://localhost:' + (process.env.PORT || 3000))
+  })
+})()
+
