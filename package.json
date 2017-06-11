@@ -7,14 +7,8 @@
     "node": "7.9.0"
   },
   "scripts": {
-    "dev": "next",
-    "deploy": "concurrently \"npm run deploy:server\" \"npm run deploy:build\" \"npm run deploy:commit\" \"npm run deploy:push\"",
-    "deploy:server": "cross-env PORT=3000 npm start",
-    "deploy:build": "npm run build",
-    "deploy:commit": "git add . && git commit - \"moar bread, regen site\"",
-    "deploy:push": "git subtree push --prefix out origin gh-pages",
-    "build": "next build && next export",
-    "start": "node server -p $PORT",
+    "build": "next build && next export -o docs",
+    "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -27,9 +21,5 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-markdown": "^2.5.0"
-  },
-  "devDependencies": {
-    "concurrently": "^3.4.0",
-    "cross-env": "^5.0.0"
   }
 }
