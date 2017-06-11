@@ -68,6 +68,7 @@ export default class Index extends React.Component {
             background-image: -webkit-image-set(url(static/img/bg.jpg) 1x, url(static/img/bg@2x.jpg) 2x);
             background-image: image-set(url(static/img/bg.jpg) 1x, url(static/img/bg@2x.jpg) 2x);
             background-size: cover;
+            background-attachment: fixed;
           }
           a {
             color: #fff;
